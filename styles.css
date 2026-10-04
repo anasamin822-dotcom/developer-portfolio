@@ -1765,6 +1765,43 @@ button, input, textarea, select {
    RESPONSIVE DESIGN BREAKPOINTS
    ========================================================================== */
 
+/* ==========================================================================
+   RESPONSIVE — 1280px (Large tablets / small laptops)
+   ========================================================================== */
+@media (max-width: 1280px) {
+  .hero-inner {
+    gap: 36px;
+  }
+
+  .nav-container {
+    padding: 0 28px;
+  }
+
+  .hero-section,
+  .about-section,
+  .work-section,
+  .stack-section,
+  .contact-section {
+    padding-left: 28px;
+    padding-right: 28px;
+  }
+
+  .about-content-grid {
+    gap: 48px;
+  }
+
+  .contact-editorial-container {
+    gap: 50px;
+  }
+
+  .skills-editorial-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ==========================================================================
+   RESPONSIVE — 1080px (Tablets landscape / small laptops)
+   ========================================================================== */
 @media (max-width: 1080px) {
   .hero-inner {
     grid-template-columns: 1fr;
@@ -1772,7 +1809,11 @@ button, input, textarea, select {
   }
 
   .hero-model-container {
-    justify-content: flex-start;
+    justify-content: center;
+  }
+
+  .model-card {
+    max-width: 380px;
   }
 
   .skills-editorial-grid {
@@ -1801,70 +1842,309 @@ button, input, textarea, select {
   .project-editorial-item.reverse .proj-right-info {
     order: 2;
   }
+
+  .proj-left-visual {
+    min-height: 320px;
+  }
+
+  .hero-triplet-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .triplet-col:nth-child(2) {
+    border-right: none;
+  }
+
+  .triplet-col:nth-child(3) {
+    border-right: none;
+    grid-column: 1 / -1;
+  }
 }
 
+/* ==========================================================================
+   RESPONSIVE — 768px (Mobile landscape / small tablets)
+   ========================================================================== */
 @media (max-width: 768px) {
+  /* --- Navigation --- */
   .nav-container {
     padding: 0 20px;
-    height: 70px;
+    height: 64px;
+    position: relative;
   }
 
   .menu-toggle {
     display: flex;
+    z-index: 10;
+    min-width: 44px;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
   }
 
   .nav-center {
     display: none;
     position: absolute;
-    top: 70px;
+    top: 64px;
     left: 0;
     right: 0;
     background: rgba(6, 7, 9, 0.98);
+    backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--border-subtle);
     flex-direction: column;
-    padding: 24px;
+    padding: 24px 20px;
     gap: 20px;
     align-items: flex-start;
+    z-index: 99;
   }
 
   .nav-center.is-open {
     display: flex;
   }
 
+  .nav-item {
+    font-size: var(--fs-base);
+    padding: 8px 0;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+
   .nav-right .lang-pill {
     display: none;
   }
 
-  .hero-section,
+  .nav-right .btn-ref {
+    font-size: 11px;
+    padding: 7px 10px;
+  }
+
+  .nav-right .ref-code {
+    display: none;
+  }
+
+  /* --- Section paddings --- */
+  .hero-section {
+    padding: 28px 20px 0;
+  }
+
   .about-section,
   .work-section,
-  .stack-section,
-  .contact-section {
+  .stack-section {
     padding-left: 20px;
     padding-right: 20px;
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+
+  .contact-section {
+    padding: 64px 20px 80px;
+  }
+
+  /* --- Hero --- */
+  .hero-inner {
+    min-height: unset;
+    gap: 36px;
+  }
+
+  :root {
+    --fs-hero: clamp(52px, 16vw, 80px);
+  }
+
+  .hero-status-pill {
+    padding: 6px 12px;
+    max-width: 100%;
+  }
+
+  .status-text {
+    font-size: 12px;
+    line-height: 1.4;
   }
 
   .hero-giant-title {
     font-size: var(--fs-hero);
+    margin-bottom: 16px;
   }
 
+  .hero-meta-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    max-width: 100%;
+  }
+
+  .cursor-hint {
+    display: none;
+  }
+
+  .hero-statement {
+    max-width: 100%;
+    margin-bottom: 24px;
+  }
+
+  .hero-actions-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .btn-hero-primary,
+  .btn-hero-secondary,
+  .btn-hero-ghost {
+    justify-content: center;
+    width: 100%;
+    min-height: 48px;
+    font-size: var(--fs-base);
+    padding: 14px 20px;
+  }
+
+  /* --- Hero model card --- */
+  .hero-model-container {
+    justify-content: center;
+  }
+
+  .model-card {
+    max-width: 340px;
+    width: 100%;
+  }
+
+  /* --- Hero triplet grid --- */
   .hero-triplet-grid {
     grid-template-columns: 1fr;
+    margin-top: 40px;
   }
 
   .triplet-col {
     border-right: none;
     border-bottom: 1px solid var(--border-subtle);
+    padding: 24px 20px;
   }
 
   .triplet-col:last-child {
     border-bottom: none;
   }
 
+  /* --- About section --- */
+  .about-section {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+
+  .massive-headline {
+    font-size: clamp(40px, 14vw, 80px);
+    letter-spacing: -0.02em;
+  }
+
+  .chromatic-silk-card {
+    height: auto;
+    min-height: 200px;
+    padding: 28px 24px;
+    align-items: flex-start;
+  }
+
+  .silk-quote {
+    font-size: var(--fs-md);
+    line-height: 1.4;
+  }
+
+  .chromatic-banner-wrap {
+    margin-bottom: 48px;
+  }
+
+  .about-content-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .meta-label {
+    width: 110px;
+  }
+
+  /* --- Work section --- */
+  .section-header-editorial {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .project-editorial-item,
+  .project-editorial-item.reverse {
+    grid-template-columns: 1fr;
+  }
+
+  .project-editorial-item.reverse .proj-left-visual {
+    order: 1;
+  }
+
+  .project-editorial-item.reverse .proj-right-info {
+    order: 2;
+  }
+
+  .proj-left-visual {
+    min-height: 260px;
+  }
+
+  .proj-right-info {
+    padding: 32px 24px;
+  }
+
+  .proj-cta-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .cta-link-btn {
+    justify-content: center;
+    min-height: 46px;
+    font-size: var(--fs-base);
+  }
+
+  /* --- Skills section --- */
   .skills-editorial-grid {
     grid-template-columns: 1fr;
   }
 
+  /* --- Contact section --- */
+  .contact-editorial-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .contact-headline {
+    font-size: clamp(28px, 8vw, 48px);
+  }
+
+  .direct-row {
+    flex-direction: column;
+    gap: 4px;
+    align-items: flex-start;
+  }
+
+  .direct-type {
+    width: auto;
+  }
+
+  .social-pills-row {
+    gap: 8px;
+  }
+
+  .social-pill {
+    padding: 10px 14px;
+    font-size: 11px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .form-editorial-box {
+    padding: 28px 20px;
+  }
+
+  .submit-inquiry-btn {
+    min-height: 48px;
+    font-size: var(--fs-base);
+  }
+
+  /* --- Footer --- */
   .footer-inner {
     flex-direction: column;
     gap: 16px;
@@ -1880,6 +2160,141 @@ button, input, textarea, select {
 
   .footer-center {
     display: none;
+  }
+
+  /* --- Ink canvas — hide on touch devices for perf --- */
+  @media (pointer: coarse) {
+    #ink-canvas {
+      display: none;
+    }
+
+    .cursor-hint {
+      display: none;
+    }
+  }
+}
+
+/* ==========================================================================
+   RESPONSIVE — 480px (Mobile portrait)
+   ========================================================================== */
+@media (max-width: 480px) {
+  :root {
+    --fs-hero: clamp(44px, 18vw, 70px);
+    --fs-2xl: clamp(26px, 7vw, 36px);
+    --fs-xl: clamp(22px, 6vw, 30px);
+  }
+
+  .hero-status-pill {
+    flex-wrap: wrap;
+    max-width: 100%;
+  }
+
+  .status-text {
+    font-size: 11px;
+  }
+
+  .hero-giant-title {
+    margin-left: 0;
+  }
+
+  .model-card {
+    max-width: 100%;
+  }
+
+  .chromatic-silk-card {
+    padding: 22px 18px;
+  }
+
+  .silk-quote {
+    font-size: var(--fs-base);
+  }
+
+  .about-subheading {
+    font-size: clamp(22px, 6vw, 34px);
+  }
+
+  .cred-card {
+    padding: 18px 16px;
+  }
+
+  .cred-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .proj-right-info {
+    padding: 24px 18px;
+  }
+
+  .proj-headline {
+    font-size: clamp(22px, 6vw, 30px);
+  }
+
+  .triplet-title {
+    font-size: var(--fs-md);
+  }
+
+  .tech-tag-row {
+    gap: 6px;
+  }
+
+  .skill-category-card {
+    padding: 22px 18px;
+  }
+
+  .contact-headline {
+    font-size: clamp(26px, 9vw, 42px);
+  }
+
+  .form-editorial-box {
+    padding: 22px 16px;
+  }
+
+  .social-pills-row {
+    gap: 6px;
+  }
+
+  .nav-right .btn-ref {
+    display: none;
+  }
+}
+
+/* ==========================================================================
+   RESPONSIVE — 360px (Very small phones)
+   ========================================================================== */
+@media (max-width: 360px) {
+  :root {
+    --fs-hero: clamp(38px, 20vw, 56px);
+  }
+
+  .hero-section,
+  .about-section,
+  .work-section,
+  .stack-section,
+  .contact-section {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .nav-container {
+    padding: 0 16px;
+  }
+
+  .footer-inner {
+    padding: 0 16px;
+  }
+
+  .chromatic-silk-card {
+    padding: 18px 14px;
+  }
+
+  .proj-right-info {
+    padding: 20px 14px;
+  }
+
+  .form-editorial-box {
+    padding: 18px 14px;
   }
 }
 
